@@ -37,7 +37,7 @@
 
                 <h1 class="sec-title reveal-up mt-6 text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
                     The Journey of<br>
-                    <span class="brand-text">Success</span> Starts Here
+                    <span class="brand-text brand-hero">Success</span> Starts Here
                 </h1>
 
                 <p class="reveal-up mt-6 max-w-xl text-base md:text-lg text-slate-300/90">
@@ -47,7 +47,7 @@
                 </p>
 
                 <div class="reveal-up mt-8 flex flex-wrap items-center gap-4">
-                    <a href="#admission" class="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-rps-pink to-rps-amber px-7 py-3.5 font-semibold text-white shadow-lg shadow-rps-pink/30 transition hover:scale-105">
+                    <a href="#admission" class="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-7 py-3.5 font-semibold text-white shadow-lg shadow-rps-pink/30 transition hover:scale-105">
                         Enquire Admission
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>

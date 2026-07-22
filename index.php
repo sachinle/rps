@@ -48,14 +48,14 @@
 
     <!-- Precompiled Tailwind utilities (see tailwind.config.js — rebuild with:
          npx tailwindcss@3 -c tailwind.config.js -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify) -->
-    <link rel="stylesheet" href="./assets/css/tailwind.css?v=3">
+    <link rel="stylesheet" href="./assets/css/tailwind.css?v=7">
 
     <!-- Swiper (hero slider + carousels) -->
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=3">
+    <link rel="stylesheet" href="./assets/css/style.css?v=7">
 </head>
 
 <body class="bg-rps-ink text-slate-200 font-body antialiased overflow-x-hidden">
@@ -94,7 +94,7 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
 
-    <script src="./assets/js/script.js?v=3" defer></script>
+    <script src="./assets/js/script.js?v=7" defer></script>
 </body>
 
 </html>

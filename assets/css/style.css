@@ -17,7 +17,11 @@
     --line:      rgba(255, 255, 255, 0.08);
     --text-1:    #f4f4fb;
     --text-2:    #a3a3b8;
-    --grad-brand: linear-gradient(90deg, #EC008C, #FBB040 55%, #3DB54A);
+    /* Section-accent TEXT gradients — single-hue & refined (no multi-colour mix).
+       Dark sections use green (light→dark); light sections use yellow (light→dark).
+       Pink is reserved for the buttons, not the headline text. */
+    --grad-brand:       linear-gradient(100deg, #86EFAC 0%, #16A34A 100%); /* green  */
+    --grad-brand-light: linear-gradient(100deg, #EAB308 0%, #A16207 100%); /* yellow */
 }
 
 * { box-sizing: border-box; }
@@ -85,6 +89,11 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
+/* Light sections switch the headline gradient to yellow (use background-image so
+   the text-clip set above is preserved). */
+.sec-light .brand-text { background-image: var(--grad-brand-light); }
+/* Hero "Success" only — the original tri-colour pink→yellow→green gradient. */
+.brand-hero { background-image: linear-gradient(90deg, #EC008C 0%, #FBB040 55%, #3DB54A 100%); }
 
 /* Glass panel */
 .glass {
@@ -112,9 +121,13 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
 }
 .eyebrow .dot {
     width: 8px; height: 8px; border-radius: 50%;
-    background: var(--rps-pink);
-    box-shadow: 0 0 0 4px rgba(236, 0, 140, 0.25);
+    background: var(--rps-green);
+    box-shadow: 0 0 0 4px rgba(61, 181, 74, 0.25);
     animation: heroPulse 2s ease-in-out infinite;
+}
+.sec-light .eyebrow .dot {
+    background: #A16207;
+    box-shadow: 0 0 0 4px rgba(161, 98, 7, 0.22);
 }
 
 @keyframes heroPulse {
@@ -264,18 +277,21 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
 /* ---------------------------------------------------------------------
    Nav
    --------------------------------------------------------------------- */
+/* Light header — white so the (white-background) logo blends seamlessly.
+   Soft shadow + hairline keep it separated from the dark hero without glare. */
 #rps-nav {
-    transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease, padding 0.35s ease;
+    background: #ffffff;
+    border-bottom: 1px solid rgba(27, 20, 100, 0.07);
+    box-shadow: 0 1px 10px -4px rgba(10, 10, 22, 0.18);
+    transition: box-shadow 0.35s ease, padding 0.35s ease;
 }
 #rps-nav.scrolled {
-    background: rgba(10, 10, 18, 0.85);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 18px -8px rgba(10, 10, 22, 0.30);
 }
 .nav-link { position: relative; }
 .nav-link::after {
     content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
-    background: var(--grad-brand); transition: width 0.3s ease;
+    background: var(--rps-pink); transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
 
@@ -340,7 +356,7 @@ select.rps-input option { background: #14142a; color: #fff; }
     color: #fff;
     background: var(--grad-brand);
     border-color: transparent;
-    box-shadow: 0 8px 22px -10px var(--rps-pink);
+    box-shadow: 0 8px 22px -10px var(--rps-green);
 }
 
 /* Gallery continuous flow: linear timing so autoplay glides like a marquee. */

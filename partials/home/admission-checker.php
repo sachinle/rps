@@ -1,7 +1,7 @@
 <?php
     // ADMISSION CHECKER — front-end availability form + intro video.
     // Set $ytId to the real YouTube video id when available.
-    $ytId = 'dQw4w9WgXcQ'; // TODO: replace with RPS admissions video id
+    $ytId = 'YgCK2DJ_HVE'; // TODO: replace with RPS admissions video id
     $grades = ['Nursery', 'LKG', 'UKG', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
 ?>
 <section id="admission" class="relative py-24 sec-light">
@@ -42,7 +42,7 @@
                             <label class="mb-1.5 block text-xs font-medium text-slate-400">Mobile Number</label>
                             <input type="tel" name="mobile" placeholder="+91 " pattern="[0-9+ ]{8,15}" class="rps-input">
                         </div>
-                        <button type="submit" class="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rps-pink to-rps-amber px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
+                        <button type="submit" class="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
                             Check Availability
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>

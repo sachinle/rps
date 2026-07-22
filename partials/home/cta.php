@@ -14,7 +14,7 @@
                     <p class="mt-3 text-slate-300 reveal-up">Admissions open for 2026 – 27. Give your child the joy of learning at RPS.</p>
                 </div>
                 <div class="flex flex-wrap items-center justify-center gap-3 reveal-up">
-                    <a href="#admission" class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rps-pink to-rps-amber px-7 py-4 font-semibold text-white shadow-lg shadow-rps-pink/30 transition hover:scale-105">
+                    <a href="#admission" class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-7 py-4 font-semibold text-white shadow-lg shadow-rps-pink/30 transition hover:scale-105">
                         Admissions Open 2026 – 27
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>

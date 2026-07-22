@@ -32,7 +32,7 @@
                                     </span>
                                 </div>
                                 <div class="flex items-center gap-3 px-1 pt-3 pb-1">
-                                    <span class="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-rps-pink to-rps-amber text-sm font-bold text-white">❝</span>
+                                    <span class="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-rps-pink to-rps-pinkdark text-sm font-bold text-white">❝</span>
                                     <span class="leading-tight">
                                         <span class="block text-sm font-semibold text-white"><?= $v['role'] ?></span>
                                         <span class="block text-xs text-slate-400"><?= $v['name'] ?></span>

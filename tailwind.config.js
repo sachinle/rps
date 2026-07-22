@@ -11,13 +11,14 @@ module.exports = {
     extend: {
       colors: {
         rps: {
-          pink:  '#EC008C',
-          green: '#3DB54A',
-          amber: '#FBB040',
-          navy:  '#1B1464',
-          blue:  '#2E3192',
-          ink:   '#0a0a12',
-          panel: '#12121f',
+          pink:     '#EC008C',
+          pinkdark: '#A1005E',
+          green:    '#3DB54A',
+          amber:    '#FBB040',
+          navy:     '#1B1464',
+          blue:     '#2E3192',
+          ink:      '#0a0a12',
+          panel:    '#12121f',
         },
       },
       fontFamily: {
