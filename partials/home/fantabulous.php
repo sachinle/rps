@@ -2,11 +2,13 @@
     // FANTABULOUS RPS — sliding carousel of YouTube videos.
     // Replace 'id' values with real YouTube video ids.
     $videos = [
-        ['id' => 'dQw4w9WgXcQ', 'title' => 'Fantabulous RPS · Episode 1'],
-        ['id' => 'dQw4w9WgXcQ', 'title' => 'Fantabulous RPS · Episode 2'],
-        ['id' => 'dQw4w9WgXcQ', 'title' => 'Fantabulous RPS · Episode 3'],
-        ['id' => 'dQw4w9WgXcQ', 'title' => 'Fantabulous RPS · Episode 4'],
-        ['id' => 'dQw4w9WgXcQ', 'title' => 'Fantabulous RPS · Episode 5'],
+        ['id' => 'UrRGOkFghzU', 'title' => 'Fantabulous RPS · Episode 1'],
+        ['id' => '9rAdtWjhHeA', 'title' => 'Fantabulous RPS · Episode 2'],
+        ['id' => 'wR2IYUZmH20', 'title' => 'Fantabulous RPS · Episode 3'],
+        ['id' => 'MvjA2uGUN-g', 'title' => 'Fantabulous RPS · Episode 4'],
+        ['id' => 'FEyjnR0Vf0w', 'title' => 'Fantabulous RPS · Episode 5'],
+        ['id' => 'u4uMCUl_nog', 'title' => 'Fantabulous RPS · Episode 6'],
+        ['id' => 'lJVh881cb9Y', 'title' => 'Fantabulous RPS · Episode 7'],
     ];
 ?>
 <section class="relative py-24">
