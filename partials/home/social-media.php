@@ -25,7 +25,7 @@
             <?php foreach ($posts as $n):
                 $file = sprintf('social/%02d.jpg', $n); ?>
                 <!-- IMAGE NEEDED: assets/image/<?= $file ?> (square instagram post) -->
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="reveal-up group relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-rps-panel to-rps-ink">
+                <a href="https://www.instagram.com/p/DY3w77MI6WP/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener" class="reveal-up group relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-rps-panel to-rps-ink">
                     <img src="./assets/image/<?= $file ?>" alt="RPS Instagram post <?= $n ?>" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                          onerror="this.parentElement.classList.add('grid','place-items-center');this.replaceWith(Object.assign(document.createElement('span'),{className:'text-[11px] text-slate-500',textContent:'<?= $file ?>'}))">
                     <span class="absolute inset-0 grid place-items-center bg-rps-ink/60 opacity-0 transition group-hover:opacity-100">

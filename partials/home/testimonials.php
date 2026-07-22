@@ -1,10 +1,10 @@
 <?php
     // TESTIMONIALS — parent testimonial videos in a sliding carousel.
     $videos = [
-        ['id' => 'dQw4w9WgXcQ', 'name' => 'A Parent',  'role' => 'Why We Chose RPS'],
-        ['id' => 'dQw4w9WgXcQ', 'name' => 'A Parent',  'role' => 'A Joyful Learning Journey'],
-        ['id' => 'dQw4w9WgXcQ', 'name' => 'A Parent',  'role' => 'Caring Teachers, Happy Child'],
-        ['id' => 'dQw4w9WgXcQ', 'name' => 'A Parent',  'role' => 'Growth Beyond Academics'],
+        ['id' => 'jcOHN3-_tIc', 'name' => 'A Parent',  'role' => 'Why We Chose RPS'],
+        ['id' => 'ARPmWhNK5mU', 'name' => 'A Parent',  'role' => 'A Joyful Learning Journey'],
+        ['id' => 'GGdHEPsKbYM', 'name' => 'A Parent',  'role' => 'Caring Teachers, Happy Child'],
+        ['id' => 'cKWXoasn6s', 'name' => 'A Parent',  'role' => 'Growth Beyond Academics'],
     ];
 ?>
 <section class="relative py-24 sec-light">
