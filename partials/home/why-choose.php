@@ -8,12 +8,12 @@
         ['accent' => 'var(--rps-blue)',  'title' => 'Safe & Caring Campus',  'desc' => 'A secure, supervised and joyful environment where every child feels valued and safe.', 'icon' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'],
     ];
     $traits = [
-        ['label' => 'Growth Mindset',        'accent' => 'var(--rps-pink)'],
-        ['label' => 'Emotional Intelligence','accent' => 'var(--rps-green)'],
+        ['label' => 'Growth Mindset',        'accent' => 'var(--rps-amber)'],
+        ['label' => 'Emotional Intelligence','accent' => 'var(--rps-amber)'],
         ['label' => 'Confidence & Courage',  'accent' => 'var(--rps-amber)'],
         ['label' => 'Curiosity & Wonder',    'accent' => 'var(--rps-blue)'],
-        ['label' => 'Resilience',            'accent' => 'var(--rps-green)'],
-        ['label' => 'Empathy & Kindness',    'accent' => 'var(--rps-pink)'],
+        ['label' => 'Resilience',            'accent' => 'var(--rps-amber)'],
+        ['label' => 'Empathy & Kindness',    'accent' => 'var(--rps-blue)'],
     ];
 ?>
 <section class="relative py-24">
@@ -28,19 +28,19 @@
                 </h2>
                 <div class="mt-8 grid gap-4 sm:grid-cols-2">
                     <?php foreach ($reasons as $r): ?>
-                        <div class="side-card reveal-card reveal-up p-5" style="--accent: <?= $r['accent'] ?>">
+                        <div class="side-card reveal-up flex h-full flex-col p-5" style="--accent: <?= $r['accent'] ?>">
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="<?= $r['accent'] ?>" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?= $r['icon'] ?></svg>
                             <h3 class="mt-3 text-lg font-semibold text-white"><?= $r['title'] ?></h3>
-                            <p class="reveal-desc mt-1 text-sm text-slate-400"><?= $r['desc'] ?></p>
+                            <p class="mt-1 text-sm text-slate-400"><?= $r['desc'] ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
 
             <!-- RIGHT: Positive Psychology -->
-            <div class="col-span-12 lg:col-span-6">
-                <div class="glass reveal-up h-full p-7 md:p-8">
-                    <div class="eyebrow"><span class="dot" style="background:var(--rps-green);box-shadow:0 0 0 4px rgba(61,181,74,.25)"></span> Positive Psychology in Learning</div>
+            <div class="col-span-12 lg:col-span-6 lg:self-center">
+                <div class="glass reveal-up p-7 md:p-8">
+                    <div class="eyebrow"><span class="dot" style="background:#EAB308;box-shadow:0 0 0 4px rgba(234,179,8,.28)"></span> Positive Psychology in Learning</div>
                     <p class="mt-5 text-slate-300/90 leading-relaxed">
                         At RPS, learning is rooted in well-being. Our positive-psychology
                         approach helps children build the inner strengths that carry them
@@ -48,9 +48,9 @@
                     </p>
                     <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
                         <?php foreach ($traits as $t): ?>
-                            <div class="floating-card rounded-2xl border p-4 text-center transition hover:scale-105"
+                            <div class="floating-card flex min-h-[92px] flex-col items-center justify-center gap-2 rounded-2xl border p-4 text-center transition hover:scale-105"
                                  style="border-color: color-mix(in srgb, <?= $t['accent'] ?> 45%, transparent); background: color-mix(in srgb, <?= $t['accent'] ?> 12%, transparent)">
-                                <span class="mx-auto mb-2 block h-2.5 w-2.5 rounded-full" style="background: <?= $t['accent'] ?>"></span>
+                                <span class="block h-2.5 w-2.5 rounded-full" style="background: <?= $t['accent'] ?>"></span>
                                 <span class="text-sm font-semibold text-white"><?= $t['label'] ?></span>
                             </div>
                         <?php endforeach; ?>

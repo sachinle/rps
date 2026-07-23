@@ -12,7 +12,7 @@
 <section class="relative py-24">
     <div class="rps-container">
         <div class="glass relative overflow-hidden p-8 md:p-12">
-            <div class="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-rps-pink/20 blur-3xl"></div>
+            <div class="pointer-events-none absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-rps-amber/20 blur-3xl"></div>
 
             <div class="flex flex-col gap-10 lg:grid lg:grid-cols-12">
                 <!-- LEFT: copy + facility chips -->
@@ -51,7 +51,7 @@
                             <input type="email" name="email"  placeholder="Email Address" required class="rps-input">
                             <input type="tel"   name="phone"  placeholder="Mobile Number" required class="rps-input">
                             <textarea name="message" rows="3" placeholder="Your message (optional)" class="rps-input resize-none"></textarea>
-                            <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
+                            <button type="submit" class="inline-flex w-full items-center justify-center gap-2 rounded-xl btn-primary px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
                                 Apply Now
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </button>

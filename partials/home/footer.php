@@ -60,7 +60,7 @@
                     <h4 class="text-sm font-semibold uppercase tracking-wider text-white"><?= $heading ?></h4>
                     <ul class="mt-4 space-y-2.5 text-sm text-slate-400">
                         <?php foreach ($links as $label => $href): ?>
-                            <li><a href="<?= $href ?>" class="transition-colors hover:text-rps-pink"><?= $label ?></a></li>
+                            <li><a href="<?= $href ?>" class="transition-colors hover:text-rps-amber"><?= $label ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
                             ['label' => 'YouTube',    'path' => '<path d="M22 8a4 4 0 0 0-3-3.9C17 3.5 12 3.5 12 3.5s-5 0-7 .6A4 4 0 0 0 2 8v8a4 4 0 0 0 3 3.9c2 .6 7 .6 7 .6s5 0 7-.6A4 4 0 0 0 22 16z"/><path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>'],
                         ];
                         foreach ($socials as $s): ?>
-                        <a href="#" aria-label="<?= $s['label'] ?>" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition hover:border-rps-pink hover:text-rps-pink">
+                        <a href="#" aria-label="<?= $s['label'] ?>" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition hover:border-rps-amber hover:text-rps-amber">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?= $s['path'] ?></svg>
                         </a>
                     <?php endforeach; ?>
@@ -92,7 +92,7 @@
         <!-- bottom bar -->
         <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-sm text-slate-500 md:flex-row">
             <p>© <?= date('Y') ?> Rathinam International Public School. All rights reserved.</p>
-            <p class="flex items-center gap-1.5">Made with <span class="text-rps-pink">♥</span> for the joy of learning</p>
+            <p class="flex items-center gap-1.5">Made with <span class="text-rps-amber">♥</span> for the joy of learning</p>
         </div>
     </div>
 </footer>

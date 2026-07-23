@@ -47,7 +47,7 @@
                 </p>
 
                 <div class="reveal-up mt-8 flex flex-wrap items-center gap-4">
-                    <a href="#admission" class="group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-7 py-3.5 font-semibold text-white shadow-lg shadow-rps-pink/30 transition hover:scale-105">
+                    <a href="#admission" class="group inline-flex items-center gap-2.5 rounded-2xl btn-primary px-7 py-3.5 font-semibold text-white shadow-lg shadow-rps-amber/40 transition hover:scale-105">
                         Enquire Admission
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="glass floating-card float-2 absolute -right-4 -top-12 hidden lg:flex items-center gap-3 p-3 pr-4">
-                        <span class="grid h-9 w-9 place-items-center rounded-lg bg-rps-pink/20 text-rps-pink">
+                        <span class="grid h-9 w-9 place-items-center rounded-lg bg-rps-amber/20 text-rps-amber">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>
                         </span>
                         <span class="text-left leading-tight">
@@ -99,7 +99,7 @@
         <a href="#about" class="mx-auto mt-12 hidden md:flex flex-col items-center gap-2 text-slate-400 hover:text-white transition-colors">
             <span class="text-[11px] uppercase tracking-[0.3em]">Scroll</span>
             <span class="flex h-9 w-5 items-start justify-center rounded-full border border-white/20 p-1">
-                <span class="h-2 w-1 animate-bounce rounded-full bg-rps-pink"></span>
+                <span class="h-2 w-1 animate-bounce rounded-full bg-rps-amber"></span>
             </span>
         </a>
     </div>

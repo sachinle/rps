@@ -6,35 +6,37 @@
             'tab'    => 'Nursery – Grade 2',
             'label'  => 'Foundation Stage',
             'title'  => 'Foundation Stage · Nursery – Grade 2',
-            'desc'   => 'In the Foundation Stage, we champion play-based, joyful learning. Grounded in curiosity, children develop core motor, language and social skills as they explore, imagine and discover — laying a strong, happy foundation for lifelong learning.',
-            'points' => ['Play & Activity-Based Learning', 'Language Development', 'Sensory & Motor Skills', 'Values & Life Skills'],
+            'desc'   => 'In the Foundation Stage, encompassing Nursery through Grade 2, our holistic curriculum is thoughtfully designed to provide a well-rounded and developmentally appropriate learning experience for young minds. Focused on fostering intellectual, social, emotional and physical growth, our program integrates play-based learning, hands-on activities and interactive experiences — with language development, numeracy skills and creative expression seamlessly woven into a balanced, engaging educational journey.',
+            'points' => ['Literacy', 'Numeracy', 'Social & Emotional Development', 'Physical Development'],
             'imgs'   => ['stages/foundation-1.jpg', 'stages/foundation-2.jpg', 'stages/foundation-3.jpg'],
         ],
-        'primary' => [
-            'tab'    => 'Grade 3',
+        'preparatory' => [
+            'tab'    => 'Grade 3 – 5',
             'label'  => 'Preparatory Stage',
-            'title'  => 'Preparatory Stage · Grade 3',
-            'desc'   => 'As children grow, learning becomes more structured yet remains exploratory. We nurture reading, writing, numeracy and creative thinking through hands-on projects that keep the joy of discovery alive.',
-            'points' => ['Concept-Based Learning', 'Reading & Writing Fluency', 'Numeracy & Logic', 'Creative Expression'],
+            'title'  => 'Preparatory Stage · Grade 3 – 5',
+            'desc'   => 'In the Preparatory Stage, encompassing Grades 3 to 5, our holistic curriculum builds upon the foundational skills acquired in the earlier years, fostering a more advanced and comprehensive learning experience. Emphasizing a student-centered approach, we develop critical thinking, problem-solving and effective communication — going beyond traditional subject boundaries with interdisciplinary projects and a robust focus on literacy and numeracy.',
+            'points' => ['Advanced Literacy', 'Mathematical Proficiency', 'Social & Emotional Growth', 'Critical Thinking & Inquiry'],
             'imgs'   => ['stages/primary-1.jpg', 'stages/primary-2.jpg', 'stages/primary-3.jpg'],
         ],
         'middle' => [
-            'tab'    => 'Grade 4 – 5',
-            'label'  => 'Middle Stage',
-            'title'  => 'Middle Stage · Grade 4 – 5',
-            'desc'   => 'Learners deepen conceptual understanding across subjects, building critical-thinking and collaboration skills. Technology-integrated classrooms and real-world projects prepare them for the years ahead.',
-            'points' => ['Critical Thinking', 'STEM & Digital Skills', 'Collaborative Projects', 'Sports & Arts'],
+            'tab'    => 'Grade 6 – 8',
+            'label'  => 'Middle School',
+            'title'  => 'Middle School · Grade 6 – 8',
+            'desc'   => 'In the dynamic Middle School years, spanning Grades 6 to 8, our holistic curriculum is meticulously crafted to guide students through a transformative educational journey. Rooted in academic excellence, our program emphasizes subject-specific knowledge while fostering critical thinking, collaboration and independent inquiry — with project-based learning, real-world applications and collaborative projects that cater to diverse interests and learning styles.',
+            'points' => ['Advanced Academics', 'Organizational Studies', 'Communication & Collaboration', 'Digital Literacy'],
             'imgs'   => ['stages/middle-1.jpg', 'stages/middle-2.jpg', 'stages/middle-3.jpg'],
         ],
         'secondary' => [
-            'tab'    => 'Grade 6 – 12',
-            'label'  => 'Secondary & Senior',
-            'title'  => 'Secondary & Senior Stage · Grade 6 – 12',
-            'desc'   => 'Our senior programme blends academic rigour with career readiness. Students are guided towards board excellence, competitive exams and confident, future-ready decision-making.',
-            'points' => ['Board Exam Excellence', 'Career Guidance', 'Leadership & Ethics', 'AI & Robotics Labs'],
+            'tab'    => 'Grade 9 – 12',
+            'label'  => 'Senior Secondary',
+            'title'  => 'Senior Secondary · Grade 9 – 12',
+            'desc'   => 'In the High School years, encompassing Grades 9 to 12 and following the NCERT syllabus, our curriculum is designed to provide a comprehensive and rigorous academic foundation. Aligned with NCERT guidelines, our program ensures depth of understanding in core subjects such as mathematics, science, social sciences and languages — structured to prepare students for national-level examinations through research-backed teaching that emphasizes critical thinking, analytical skills and practical application.',
+            'points' => ['Advanced Academics', 'Independence & Self-Management', 'Specialized Knowledge', 'Effective Communication'],
             'imgs'   => ['stages/secondary-1.jpg', 'stages/secondary-2.jpg', 'stages/secondary-3.jpg'],
         ],
     ];
+    // Show tabs in descending order: Grade 9–12 first … Nursery last.
+    $stages = array_reverse($stages, true);
 ?>
 <section id="stages" class="relative py-24">
     <div class="rps-container">
@@ -59,7 +61,7 @@
 
             <!-- Panels -->
             <?php $first = true; foreach ($stages as $key => $s): ?>
-                <div data-panel="<?= $key ?>" class="<?= $first ? '' : 'hidden' ?>">
+                <div data-panel="<?= $key ?>" class="stage-panel<?= $first ? ' active' : '' ?>">
                     <div class="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-center lg:gap-12">
                         <!-- copy -->
                         <div class="col-span-12 lg:col-span-5">

@@ -42,7 +42,7 @@
                             <label class="mb-1.5 block text-xs font-medium text-slate-400">Mobile Number</label>
                             <input type="tel" name="mobile" placeholder="+91 " pattern="[0-9+ ]{8,15}" class="rps-input">
                         </div>
-                        <button type="submit" class="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rps-pink to-rps-pinkdark px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
+                        <button type="submit" class="group inline-flex w-full items-center justify-center gap-2 rounded-xl btn-primary px-6 py-3.5 font-semibold text-white transition hover:scale-[1.02]">
                             Check Availability
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
@@ -56,14 +56,14 @@
                 <div class="glass reveal-up h-full p-4 md:p-5">
                     <div class="mb-4 flex items-center justify-between px-2">
                         <p class="text-sm font-semibold text-white">Unlock Your Child's Full Potential!</p>
-                        <span class="rounded-full bg-rps-pink/20 px-3 py-1 text-xs font-semibold text-rps-pink">Admissions Open</span>
+                        <span class="rounded-full bg-rps-amber/20 px-3 py-1 text-xs font-semibold text-rps-amberdark">Admissions Open</span>
                     </div>
                     <!-- YouTube facade (click to load the iframe) -->
                     <div class="video-thumb group relative aspect-video cursor-pointer overflow-hidden rounded-2xl bg-black" data-yt="<?= $ytId ?>">
                         <img src="https://i.ytimg.com/vi/<?= $ytId ?>/hqdefault.jpg" alt="RPS admissions video" loading="lazy" class="h-full w-full object-cover opacity-80 transition group-hover:opacity-100"
                              onerror="this.style.display='none'">
                         <span class="absolute inset-0 grid place-items-center">
-                            <span class="grid h-16 w-16 place-items-center rounded-full bg-rps-pink/90 text-white shadow-lg shadow-rps-pink/40 transition group-hover:scale-110">
+                            <span class="grid h-16 w-16 place-items-center rounded-full bg-rps-amber text-rps-ink shadow-lg shadow-rps-amber/40 transition group-hover:scale-110">
                                 <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                             </span>
                         </span>

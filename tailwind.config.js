@@ -15,6 +15,7 @@ module.exports = {
           pinkdark: '#A1005E',
           green:    '#3DB54A',
           amber:    '#FBB040',
+          amberdark:'#A16207',
           navy:     '#1B1464',
           blue:     '#2E3192',
           ink:      '#0a0a12',

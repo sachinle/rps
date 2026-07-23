@@ -4,6 +4,8 @@
 (function () {
     "use strict";
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     /* ---- Nav: shrink/glass on scroll + scroll-to-top button ---- */
     const nav = document.getElementById("rps-nav");
     const topBtn = document.getElementById("rps-top");
@@ -14,7 +16,35 @@
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    if (topBtn) topBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    /* ---- Lenis: momentum smooth scrolling (skipped for reduced-motion) ---- */
+    let lenis = null;
+    if (typeof Lenis !== "undefined" && !prefersReducedMotion) {
+        lenis = new Lenis({
+            duration: 1.15,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+        lenis.on("scroll", onScroll);
+        (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })();
+
+        // Route in-page anchor links through Lenis (offset clears the fixed nav)
+        document.querySelectorAll('a[href^="#"]').forEach((a) => {
+            a.addEventListener("click", (e) => {
+                const href = a.getAttribute("href");
+                if (href && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -68, duration: 1.2 }); }
+                }
+            });
+        });
+    }
+
+    function scrollToTop() {
+        if (lenis) lenis.scrollTo(0, { duration: 1.1 });
+        else window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (topBtn) topBtn.addEventListener("click", scrollToTop);
 
     /* ---- Mobile menu ---- */
     const burger = document.getElementById("rps-burger");
@@ -41,7 +71,8 @@
                 const key = tab.getAttribute("data-tab");
                 tabs.forEach((t) => t.classList.remove("tab-active"));
                 tab.classList.add("tab-active");
-                panels.forEach((p) => p.classList.toggle("hidden", p.getAttribute("data-panel") !== key));
+                // toggle .active → CSS fades/slides the incoming panel in
+                panels.forEach((p) => p.classList.toggle("active", p.getAttribute("data-panel") === key));
             });
         });
     });

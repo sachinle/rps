@@ -1,7 +1,7 @@
 <?php
-    // EXTRA CURRICULARS — floating hexagon activity grid (pure CSS clip-path).
+    // CO-CURRICULARS — refined card grid (senior-school tone; no playful hexagons).
     // Icons are inline SVGs so no image assets are required here.
-    $c = ['var(--rps-pink)', 'var(--rps-green)', 'var(--rps-amber)', 'var(--rps-blue)'];
+    $c = ['var(--rps-amber)', 'var(--rps-blue)', 'var(--rps-green)', 'var(--rps-navy)'];
     $activities = [
         ['Swimming',   '<path d="M2 16s2-2 4-2 3 2 6 2 4-2 6-2 4 2 4 2"/><path d="M2 20s2-2 4-2 3 2 6 2 4-2 6-2 4 2 4 2"/><circle cx="16" cy="6" r="2"/><path d="m8 12 4-3 3 2"/>'],
         ['Skating',    '<circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/><path d="M6 17V5h6l3 5h3M4 9h6"/>'],
@@ -16,7 +16,7 @@
         ['Athletics',  '<circle cx="15" cy="5" r="2"/><path d="M13 8l-3 3 3 2 1 5m-1-7 4 1"/><path d="M4 20l4-6"/>'],
         ['Robotics',   '<rect x="6" y="8" width="12" height="10" rx="2"/><path d="M12 8V5M9 3h6M9 13h.01M15 13h.01M9 18v3M15 18v3"/>'],
         ['Public Speaking','<path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>'],
-        ['Gardening',  '<path d="M12 22V12"/><path d="M12 12C8 12 6 9 6 5c4 0 6 3 6 7z"/><path d="M12 10c0-3 2-5 6-5 0 3-2 5-6 5z"/>'],
+        ['Entrepreneurship','<path d="M3 21h18M6 21V9l6-4 6 4v12M10 21v-6h4v6"/>'],
         ['Coding Club','<path d="m8 8-4 4 4 4M16 8l4 4-4 4M13 6l-2 12"/>'],
         ['Photography','<path d="M4 8h3l2-2h6l2 2h3v11H4V8z"/><circle cx="12" cy="13" r="3"/>'],
     ];
@@ -24,22 +24,25 @@
 <section id="extra" class="relative py-24 sec-light">
     <div class="rps-container">
         <div class="mx-auto max-w-3xl text-center">
-            <div class="eyebrow reveal-up mx-auto"><span class="dot" style="background:var(--rps-amber);box-shadow:0 0 0 4px rgba(251,176,64,.25)"></span> Beyond Academics</div>
+            <div class="eyebrow reveal-up mx-auto"><span class="dot"></span> Beyond Academics</div>
             <h2 class="sec-title reveal-up mt-5 text-3xl md:text-5xl">
-                <span class="brand-text">15+</span> Exciting Extra-Curriculars
+                <span class="brand-text">15+</span> Co-Curricular Programs
             </h2>
             <p class="reveal-up mt-5 text-slate-400">
-                Curriculum is only half the story — at RPS, every child discovers their spark
-                through a vibrant world of activities.
+                Beyond the syllabus, RPS offers a structured spectrum of clubs, sports and
+                creative pursuits — helping every senior-school student build character,
+                leadership and lifelong skills.
             </p>
         </div>
 
-        <div class="hex-grid reveal-up mt-14">
+        <div class="reveal-up mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-6">
             <?php foreach ($activities as $i => $a):
                 $accent = $c[$i % count($c)]; ?>
-                <div class="hex" style="animation-delay: <?= ($i % 6) * 0.25 ?>s">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="<?= $accent ?>" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?= $a[1] ?></svg>
-                    <span><?= $a[0] ?></span>
+                <div class="activity-card" style="--accent: <?= $accent ?>">
+                    <span class="activity-ico">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="<?= $accent ?>" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?= $a[1] ?></svg>
+                    </span>
+                    <span class="activity-name"><?= $a[0] ?></span>
                 </div>
             <?php endforeach; ?>
         </div>

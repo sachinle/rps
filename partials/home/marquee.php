@@ -15,7 +15,7 @@
         <div class="marquee__track">
             <?php foreach ($items as $it): ?>
                 <span class="flex items-center gap-3 text-sm font-medium text-slate-300">
-                    <span class="text-rps-pink"><?= $it[0] ?></span>
+                    <span class="text-rps-amber"><?= $it[0] ?></span>
                     <?= $it[1] ?>
                 </span>
             <?php endforeach; ?>

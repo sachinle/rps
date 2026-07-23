@@ -15,7 +15,7 @@
                     Moments from Our <span class="brand-text">Happy Campus</span>
                 </h2>
             </div>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="reveal-up inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-rps-pink to-rps-pinkdark px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="reveal-up inline-flex items-center gap-2 rounded-full btn-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:scale-105">
                 Follow @rps
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
