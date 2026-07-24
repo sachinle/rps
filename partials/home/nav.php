@@ -19,12 +19,12 @@
             <img
                 src="assets/image/logo.png"
                 alt="Rathinam International Public School logo"
-                class="h-9 w-auto max-w-[240px] object-contain md:h-12"
+                class="h-12 w-auto max-w-[300px] object-contain md:h-16"
             >
         </a>
 
         <!-- RIGHT: desktop menu -->
-        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        <nav class="desk-menu hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
             <?php foreach ($menu as $label => $href): ?>
                 <a href="<?= $href ?>" class="nav-link transition-colors hover:text-rps-amberdark"><?= $label ?></a>
             <?php endforeach; ?>

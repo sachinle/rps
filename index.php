@@ -48,7 +48,7 @@
 
     <!-- Precompiled Tailwind utilities (see tailwind.config.js — rebuild with:
          npx tailwindcss@3 -c tailwind.config.js -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify) -->
-    <link rel="stylesheet" href="./assets/css/tailwind.css?v=12">
+    <link rel="stylesheet" href="./assets/css/tailwind.css?v=16">
 
     <!-- Swiper (hero slider + carousels) -->
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -58,7 +58,7 @@
     <!-- Lenis — momentum smooth scrolling (initialised in script.js) -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=12">
+    <link rel="stylesheet" href="./assets/css/style.css?v=16">
 </head>
 
 <body class="bg-rps-ink text-slate-200 font-body antialiased overflow-x-hidden">
@@ -73,7 +73,7 @@
     </div>
 
     <?php include __DIR__ . '/partials/home/nav.php'; ?>
-    <?php include __DIR__ . '/partials/home/hero.php'; ?>
+    <?php include __DIR__ . '/partials/home/hero-slider.php'; ?>
     <?php include __DIR__ . '/partials/home/marquee.php'; ?>
     <?php include __DIR__ . '/partials/home/about.php'; ?>
     <?php include __DIR__ . '/partials/home/why-choose.php'; ?>
@@ -86,6 +86,7 @@
     <?php include __DIR__ . '/partials/home/testimonials.php'; ?>
     <?php include __DIR__ . '/partials/home/facilities.php'; ?>
     <?php include __DIR__ . '/partials/home/gallery.php'; ?>
+    <?php include __DIR__ . '/partials/home/hero.php'; ?>
     <?php include __DIR__ . '/partials/home/cta.php'; ?>
     <?php include __DIR__ . '/partials/home/footer.php'; ?>
 
@@ -97,7 +98,7 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
 
-    <script src="./assets/js/script.js?v=12" defer></script>
+    <script src="./assets/js/script.js?v=16" defer></script>
 </body>
 
 </html>

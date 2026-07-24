@@ -197,6 +197,33 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
     to   { transform: translateX(-100%); }
 }
 
+/* Gallery marquee rows — tighter gaps, fixed height, mixed widths */
+.marquee__track.gallery-row { gap: 1rem; align-items: stretch; padding-right: 1rem; }
+.gallery-item {
+    height: 210px;
+    flex: 0 0 auto;
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px -18px rgba(10, 10, 22, 0.55);
+    background: #e7e9f6;
+}
+.gallery-item img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+@media (max-width: 768px) {
+    .marquee__track.gallery-row { gap: 0.65rem; padding-right: 0.65rem; }
+    .gallery-item { height: 150px; border-radius: 12px; }
+}
+@media (max-width: 480px) {
+    .gallery-item { height: 126px; }
+}
+
 /* ---------------------------------------------------------------------
    Rising-line accent (borrowed idea from global — vertical light beam)
    --------------------------------------------------------------------- */
@@ -285,16 +312,36 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
 /* ---------------------------------------------------------------------
    Nav
    --------------------------------------------------------------------- */
-/* Light header — white so the (white-background) logo blends seamlessly.
-   Soft shadow + hairline keep it separated from the dark hero without glare. */
+/* Header: TRANSPARENT over the hero banner, turns solid WHITE once the hero
+   is scrolled past (JS toggles .scrolled at the hero's height). */
 #rps-nav {
-    background: #ffffff;
-    border-bottom: 1px solid rgba(27, 20, 100, 0.07);
-    box-shadow: 0 1px 10px -4px rgba(10, 10, 22, 0.18);
-    transition: box-shadow 0.35s ease, padding 0.35s ease;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease, padding 0.35s ease;
 }
 #rps-nav.scrolled {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(27, 20, 100, 0.07);
     box-shadow: 0 4px 18px -8px rgba(10, 10, 22, 0.30);
+}
+/* subtle top scrim keeps white text/logo legible over bright banner areas */
+#rps-nav:not(.scrolled)::before {
+    content: "";
+    position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+/* Transparent state → white desktop links / phone / burger */
+#rps-nav:not(.scrolled) .desk-menu a,
+#rps-nav:not(.scrolled) a[href^="tel"] { color: #ffffff; }
+#rps-nav:not(.scrolled) .desk-menu a:hover,
+#rps-nav:not(.scrolled) a[href^="tel"]:hover { color: #FDE047; }
+#rps-nav:not(.scrolled) .nav-link::after { background: #FDE047; }
+#rps-nav:not(.scrolled) #rps-burger {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
 }
 .nav-link { position: relative; }
 .nav-link::after {
@@ -314,11 +361,24 @@ h1, h2, h3, h4, h5, .font-display { font-family: "Clash Display", sans-serif; }
 .swiper-pagination-bullet { background: #fff; opacity: 0.4; }
 .swiper-pagination-bullet-active { background: #EAB308; opacity: 1; width: 22px; border-radius: 6px; }
 
-/* hero slider dark overlay */
+/* hero slider dark overlay (closing hero before footer) */
 .hero-slide::after {
     content: ""; position: absolute; inset: 0;
     background: linear-gradient(105deg, rgba(10,10,18,0.92) 0%, rgba(10,10,18,0.72) 40%, rgba(10,10,18,0.4) 100%);
 }
+
+/* Top hero image slider — cinematic vignette + top/bottom fades.
+   Darkens the edges, keeps the white nav & scroll cue legible, and blends
+   the bottom into the dark page so the next section transition feels smooth. */
+.hero-slider .swiper-slide { overflow: hidden; }
+.hero-vignette {
+    background:
+        radial-gradient(ellipse 115% 90% at 50% 42%, rgba(0,0,0,0) 38%, rgba(0,0,0,0.28) 72%, rgba(0,0,0,0.62) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.05) 20%, rgba(0,0,0,0) 50%, rgba(10,10,18,0.55) 84%, rgba(10,10,18,0.95) 100%);
+}
+/* Slightly larger, tappable pagination dots for the hero */
+.hero-dots .swiper-pagination-bullet { width: 9px; height: 9px; opacity: 0.55; }
+.hero-dots .swiper-pagination-bullet-active { width: 26px; }
 
 /* ---------------------------------------------------------------------
    Forms

@@ -9,9 +9,19 @@
     /* ---- Nav: shrink/glass on scroll + scroll-to-top button ---- */
     const nav = document.getElementById("rps-nav");
     const topBtn = document.getElementById("rps-top");
+
+    // Nav stays transparent over the hero, turns solid once it's scrolled past.
+    let navSolidAt = 60;
+    function computeNavThreshold() {
+        const hero = document.getElementById("top");
+        navSolidAt = hero ? Math.max(60, hero.offsetHeight - 80) : 60;
+    }
+    computeNavThreshold();
+    window.addEventListener("resize", computeNavThreshold);
+
     function onScroll() {
         const y = window.scrollY;
-        if (nav) nav.classList.toggle("scrolled", y > 40);
+        if (nav) nav.classList.toggle("scrolled", y > navSolidAt);
         if (topBtn) topBtn.classList.toggle("show", y > 400);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -179,6 +189,18 @@
     function initSwipers() {
         if (typeof Swiper === "undefined") return setTimeout(initSwipers, 120);
 
+        // Top hero: full-screen banner images sliding one-by-one.
+        if (document.querySelector(".hero-slider")) {
+            new Swiper(".hero-slider", {
+                loop: true,
+                speed: 1000,
+                grabCursor: true,
+                autoplay: { delay: 4500, disableOnInteraction: false },
+                pagination: { el: ".hero-dots", clickable: true },
+            });
+        }
+
+        // Closing hero (before footer): fading background slider.
         if (document.querySelector(".hero-swiper")) {
             new Swiper(".hero-swiper", {
                 loop: true,
@@ -209,13 +231,13 @@
         document.querySelectorAll(".gallery-swiper").forEach((node) => {
             new Swiper(node, {
                 loop: true,
-                slidesPerView: 1.3,
-                spaceBetween: 14,
-                speed: 4000,
+                slidesPerView: 1.15,
+                spaceBetween: 18,
+                speed: 4200,
                 allowTouchMove: true,
                 freeMode: { enabled: true, momentum: false },
                 autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
-                breakpoints: { 640: { slidesPerView: 2.4 }, 1024: { slidesPerView: 3.4 } },
+                breakpoints: { 640: { slidesPerView: 1.8 }, 1024: { slidesPerView: 2.6 } },
             });
         });
     }

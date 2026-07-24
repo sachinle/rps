@@ -8,7 +8,7 @@
         './assets/image/hero/slide-4.jpg',
     ];
 ?>
-<section id="top" class="relative min-h-screen w-full overflow-hidden">
+<section id="journey" class="relative w-full overflow-hidden py-20 md:py-24">
 
     <!-- ===== Background image slider ===== -->
     <div class="hero-swiper swiper absolute inset-0 h-full w-full">
@@ -25,7 +25,7 @@
     </div>
 
     <!-- ===== Foreground content ===== -->
-    <div class="relative z-10 mx-auto flex min-h-screen max-w-[1320px] flex-col justify-center px-5 md:px-8 pt-28 pb-16">
+    <div class="relative z-10 mx-auto flex max-w-[1320px] flex-col justify-center px-5 md:px-8">
         <div class="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-center">
 
             <!-- LEFT: headline -->
@@ -94,13 +94,5 @@
                 </div>
             </div>
         </div>
-
-        <!-- bottom scroll hint -->
-        <a href="#about" class="mx-auto mt-12 hidden md:flex flex-col items-center gap-2 text-slate-400 hover:text-white transition-colors">
-            <span class="text-[11px] uppercase tracking-[0.3em]">Scroll</span>
-            <span class="flex h-9 w-5 items-start justify-center rounded-full border border-white/20 p-1">
-                <span class="h-2 w-1 animate-bounce rounded-full bg-rps-amber"></span>
-            </span>
-        </a>
     </div>
 </section>
