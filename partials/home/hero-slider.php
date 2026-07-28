@@ -9,7 +9,7 @@
         './assets/image/Banner4.png',
     ];
 ?>
-<section id="top" class="relative w-full overflow-hidden" style="height:100svh;min-height:520px;">
+<section id="top" class="hero-cover relative w-full overflow-hidden">
 
     <!-- Sliding banner images -->
     <div class="hero-slider swiper absolute inset-0 h-full w-full">
@@ -32,7 +32,7 @@
     <div class="hero-dots absolute bottom-7 left-1/2 z-10 -translate-x-1/2"></div>
 
     <!-- Mouse scroll animation -->
-    <a href="#about" aria-label="Scroll down" class="absolute bottom-16 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/85 transition-colors hover:text-white">
+    <a href="#about" aria-label="Scroll down" class="absolute bottom-16 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/85 transition-colors hover:text-white lg:flex">
         <span class="text-[11px] font-medium uppercase tracking-[0.3em]">Scroll</span>
         <span class="flex h-9 w-5 items-start justify-center rounded-full border border-white/50 p-1">
             <span class="h-2 w-1 animate-bounce rounded-full bg-rps-amber"></span>

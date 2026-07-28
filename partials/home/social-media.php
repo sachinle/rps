@@ -21,7 +21,7 @@
             </a>
         </div>
 
-        <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4 lg:grid-cols-4">
+        <div class="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-3 sm:grid-cols-4 md:gap-4 lg:grid-cols-4">
             <?php foreach ($posts as $n):
                 $file = sprintf('social/%02d.jpg', $n); ?>
                 <!-- IMAGE NEEDED: assets/image/<?= $file ?> (square instagram post) -->

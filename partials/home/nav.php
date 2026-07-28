@@ -19,7 +19,7 @@
             <img
                 src="assets/image/logo.png"
                 alt="Rathinam International Public School logo"
-                class="h-12 w-auto max-w-[300px] object-contain md:h-16"
+                class="h-14 w-auto max-w-[320px] object-contain md:h-[72px]"
             >
         </a>
 
@@ -33,7 +33,7 @@
         <div class="hidden lg:flex items-center gap-3">
             <a href="tel:+918144260260" class="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-rps-amberdark transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.93.7 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.92.34 1.87.57 2.85.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span class="hidden xl:inline">+91 81442 60260</span>
+                <span class="hidden xl:inline">+91 8144 260 260</span>
             </a>
             <a href="#admission" class="group inline-flex items-center gap-2 rounded-full btn-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-rps-amber/40 transition hover:scale-105">
                 Apply Now

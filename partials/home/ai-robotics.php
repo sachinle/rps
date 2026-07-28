@@ -16,7 +16,7 @@
             <div class="flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:items-center">
                 <!-- LEFT copy + features -->
                 <div class="col-span-12 lg:col-span-7">
-                    <div class="eyebrow reveal-up"><span class="dot" style="background:var(--rps-blue);box-shadow:0 0 0 4px rgba(46,49,146,.35)"></span> The First School in Coimbatore</div>
+                    <div class="eyebrow reveal-up"><span class="dot" style="background:var(--rps-amber);box-shadow:0 0 0 4px rgba(255, 193, 7, 0.35)"></span> The First School in Coimbatore</div>
                     <h2 class="sec-title reveal-up mt-5 text-3xl md:text-4xl">
                         Learning <span class="brand-text">Artificial Intelligence</span><br>
                         &amp; Robotics through AI

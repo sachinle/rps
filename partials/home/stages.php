@@ -42,9 +42,9 @@
     <div class="rps-container">
         <div class="mx-auto max-w-3xl text-center">
             <div class="eyebrow reveal-up mx-auto"><span class="dot"></span> Our Academic Journey</div>
-            <h2 class="sec-title reveal-up mt-5 text-3xl md:text-5xl">
-                Nurturing Young Minds from Early<br>
-                Childhood to <span class="brand-text">High-School Graduation</span>
+            <h2 class="sec-title reveal-up mt-5 text-3xl md:text-4xl">
+                Nurturing Young Minds from Early Childhood<br>
+                to <span class="brand-text whitespace-nowrap">High-School Graduation</span>
             </h2>
             <p class="reveal-up mt-5 text-slate-400">
                 Fostering holistic growth &amp; joyful learning experiences for children at every stage.
@@ -71,14 +71,14 @@
                             <ul class="mt-6 grid grid-cols-2 gap-3">
                                 <?php foreach ($s['points'] as $p): ?>
                                     <li class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-slate-200">
-                                        <span class="grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-rps-amber/20 text-rps-amber">
+                                        <span class="stage-tick grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-rps-amber/20 text-rps-amber">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                                         </span>
                                         <?= $p ?>
                                     </li>
                                 <?php endforeach; ?>
                             </ul>
-                            <a href="#admission" class="mt-7 inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                            <a href="#admission" class="mt-7 inline-flex items-center gap-2 rounded-xl btn-primary px-5 py-3 text-sm font-semibold text-white transition hover:scale-105">
                                 Read More
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </a>

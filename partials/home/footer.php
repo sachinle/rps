@@ -15,7 +15,9 @@
         ],
     ];
 ?>
-<footer id="footer" class="relative border-t border-white/10 pt-16">
+<footer id="footer" class="relative pt-16">
+    <!-- Tri-colour top border (logo colours: pink · yellow · green) -->
+    <div class="absolute inset-x-0 top-0 h-1" style="background:linear-gradient(90deg,#EC008C 0%,#EAB308 50%,#3DB54A 100%)"></div>
     <div class="rps-container">
         <div class="flex flex-col gap-10 lg:grid lg:grid-cols-12">
 

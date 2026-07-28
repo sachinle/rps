@@ -185,6 +185,34 @@
         if (closeBtn) closeBtn.addEventListener("click", closeChat);
     })();
 
+    /* ---- About stats: rotate the stat card on a timer + progress line ---- */
+    (function () {
+        const wrap = document.querySelector(".about-stats");
+        const progress = document.querySelector(".about-progress");
+        if (!wrap) return;
+        const slides = wrap.querySelectorAll(".stat-slide");
+        if (slides.length < 2) return;
+        const dur = 2400;
+        let idx = 0;
+        function show(i) {
+            slides.forEach((s, j) => {
+                s.classList.remove("opacity-100", "translate-x-0");
+                s.classList.add("opacity-0");
+                s.classList.toggle("-translate-x-full", j < i);
+                s.classList.toggle("translate-x-full", j >= i);
+            });
+            slides[i].classList.remove("opacity-0", "translate-x-full", "-translate-x-full");
+            slides[i].classList.add("opacity-100", "translate-x-0");
+            if (progress) {
+                progress.style.transition = "none";
+                progress.style.width = "0%";
+                setTimeout(() => { progress.style.transition = "width " + dur + "ms linear"; progress.style.width = "100%"; }, 40);
+            }
+        }
+        show(0);
+        setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, dur);
+    })();
+
     /* ---- Swiper initialisation (runs after swiper-bundle loads) ---- */
     function initSwipers() {
         if (typeof Swiper === "undefined") return setTimeout(initSwipers, 120);
@@ -209,6 +237,21 @@
                 speed: 1200,
                 autoplay: { delay: 4500, disableOnInteraction: false },
                 pagination: { el: ".hero-swiper .swiper-pagination", clickable: true },
+            });
+        }
+
+        // About section: auto-sliding text content + fading image slider.
+        if (document.querySelector(".about-slider")) {
+            new Swiper(".about-slider", {
+                loop: true, speed: 700, autoHeight: true,
+                autoplay: { delay: 5000, disableOnInteraction: false },
+                pagination: { el: ".about-slider .about-pagination", clickable: true },
+            });
+        }
+        if (document.querySelector(".about-img-slider")) {
+            new Swiper(".about-img-slider", {
+                loop: true, effect: "fade", fadeEffect: { crossFade: true }, speed: 900,
+                autoplay: { delay: 4000, disableOnInteraction: false },
             });
         }
 
