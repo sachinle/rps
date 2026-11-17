@@ -4,7 +4,7 @@
     $ytId = 'YgCK2DJ_HVE'; // TODO: replace with RPS admissions video id
     $grades = ['Nursery', 'LKG', 'UKG', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
 ?>
-<section id="admission" class="relative py-24 sec-light">
+<section id="admission" class="relative py-24">
     <div class="rps-container">
         <div class="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:items-stretch">
 
@@ -16,7 +16,8 @@
                         Check <span class="brand-text">Seat Availability</span> in Seconds
                     </h2>
                     <p class="mt-3 text-sm text-slate-400">
-                        Tell us the class you're looking for and we'll confirm availability right away.
+                        Parents should not have to search for the next step. Tell us the class you're looking for
+                        and we'll confirm availability right away.
                     </p>
 
                     <form id="rps-checker" class="mt-7 space-y-4">
@@ -56,11 +57,11 @@
                 <div class="glass reveal-up h-full p-4 md:p-5">
                     <div class="mb-4 flex items-center justify-between px-2">
                         <p class="text-sm font-semibold text-white">Unlock Your Child's Full Potential!</p>
-                        <span class="rounded-full bg-rps-amber/20 px-3 py-1 text-xs font-semibold text-rps-amberdark">Admissions Open</span>
+                        <span class="rounded-full bg-rps-amber/20 px-3 py-1 text-xs font-semibold text-rps-amber">Admissions Open</span>
                     </div>
                     <!-- YouTube facade (click to load the iframe) -->
                     <div class="video-thumb group relative aspect-video cursor-pointer overflow-hidden rounded-2xl bg-black" data-yt="<?= $ytId ?>">
-                        <img src="https://i.ytimg.com/vi/<?= $ytId ?>/hqdefault.jpg" alt="RPS admissions video" loading="lazy" class="h-full w-full object-cover opacity-80 transition group-hover:opacity-100"
+                        <img width="1200" height="800" src="https://i.ytimg.com/vi/<?= $ytId ?>/hqdefault.jpg" alt="RPS admissions video" loading="lazy" class="h-full w-full object-cover opacity-80 transition group-hover:opacity-100"
                              onerror="this.style.display='none'">
                         <span class="absolute inset-0 grid place-items-center">
                             <span class="grid h-16 w-16 place-items-center rounded-full bg-rps-amber text-rps-ink shadow-lg shadow-rps-amber/40 transition group-hover:scale-110">

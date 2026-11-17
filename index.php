@@ -5,11 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a12">
-    <meta name="description" content="Rathinam International Public School (RPS), Coimbatore — a CBSE senior secondary school nurturing young minds from early childhood to high school graduation through positive psychology, AI-driven learning and holistic growth.">
+    <meta name="description" content="Rathinam International Public School, Coimbatore — a CBSE senior secondary school nurturing children from Nursery to Grade 12 through holistic learning.">
     <meta name="robots" content="index,follow">
     <meta property="og:title" content="Rathinam International Public School | The Joy of Learning">
     <meta property="og:description" content="CBSE Senior Secondary School in Coimbatore. #HappySchooling — nurturing young minds from Nursery to Grade 12.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://rathinamschool.ac.in/assets/image/Banner1.webp">
+    <meta property="og:url" content="https://rathinamschool.ac.in/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TalktoRIPSchool">
+    <meta name="twitter:title" content="Rathinam International Public School | The Joy of Learning">
+    <meta name="twitter:description" content="CBSE Senior Secondary School in Coimbatore. #HappySchooling — nurturing young minds from Nursery to Grade 12.">
+    <meta name="twitter:image" content="https://rathinamschool.ac.in/assets/image/Banner1.webp">
+    <link rel="icon" href="./assets/image/favicon.webp" type="image/png">
     <title>Rathinam International Public School | The Joy of Learning</title>
 
     <!--
@@ -18,14 +26,14 @@
       ---------------------------------------------------------------------
       Put your real images under: assets/image/<folder>/...
       Each partial has an "IMAGE NEEDED" comment marking the exact slot & size.
-        assets/image/logo.png            RPS logo (transparent, wide)
-        assets/image/logo-mark.png       just the 3-dot rps mark (square)
-        assets/image/hero/slide-1..4.jpg full-bleed campus photos (1920x1080)
-        assets/image/hero/qr.png         admission QR code (square)
-        assets/image/stages/*.jpg        classroom / activity photos
-        assets/image/ai-robot.png        robot / AI mascot (transparent PNG)
-        assets/image/social/*.jpg        instagram post thumbnails (square)
-        assets/image/gallery/*.jpg       gallery photos (4:3)
+        assets/image/logo.webp            RPS logo (transparent, wide)
+        assets/image/logo-mark.webp       just the 3-dot rps mark (square)
+        assets/image/hero/slide-1..4.webp full-bleed campus photos (1920x1080)
+        assets/image/hero/qr.webp         admission QR code (square)
+        assets/image/stages/*.webp        classroom / activity photos
+        assets/image/ai-robot.webp        robot / AI mascot (transparent PNG)
+        assets/image/social/*.webp        instagram post thumbnails (square)
+        assets/image/gallery/*.webp       gallery photos (4:3)
       Videos (FANTABULOUS / TESTIMONIALS) use YouTube IDs — set them inline.
       =====================================================================
     -->
@@ -48,7 +56,7 @@
 
     <!-- Precompiled Tailwind utilities (see tailwind.config.js — rebuild with:
          npx tailwindcss@3 -c tailwind.config.js -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css --minify) -->
-    <link rel="stylesheet" href="./assets/css/tailwind.css?v=19">
+    <link rel="stylesheet" href="./assets/css/tailwind.css?v=28">
 
     <!-- Swiper (hero slider + carousels) -->
     <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'">
@@ -58,7 +66,13 @@
     <!-- Lenis — momentum smooth scrolling (initialised in script.js) -->
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" defer></script>
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=19">
+    <link rel="stylesheet" href="./assets/css/style.css?v=67">
+
+    <!-- Preload the LCP hero image (responsive: mobile gets the 960px variant) -->
+    <link rel="preload" as="image" href="./assets/image/Banner1.webp"
+          imagesrcset="./assets/image/Banner1-m.webp 820w, ./assets/image/Banner1.webp 1742w"
+          imagesizes="100vw" fetchpriority="high">
+    <?php include __DIR__ . '/partials/home/analytics.php'; ?>
 </head>
 
 <body class="bg-rps-ink text-slate-200 font-body antialiased overflow-x-hidden">
@@ -76,16 +90,17 @@
     <?php include __DIR__ . '/partials/home/hero-slider.php'; ?>
     <?php include __DIR__ . '/partials/home/marquee.php'; ?>
     <?php include __DIR__ . '/partials/home/about.php'; ?>
-    <?php include __DIR__ . '/partials/home/why-choose.php'; ?>
-    <?php include __DIR__ . '/partials/home/admission-checker.php'; ?>
     <?php include __DIR__ . '/partials/home/stages.php'; ?>
+    <?php include __DIR__ . '/partials/home/why-choose.php'; ?>
     <?php include __DIR__ . '/partials/home/extra-curriculars.php'; ?>
     <?php include __DIR__ . '/partials/home/ai-robotics.php'; ?>
+    <?php include __DIR__ . '/partials/home/facilities.php'; ?>
     <?php include __DIR__ . '/partials/home/social-media.php'; ?>
+    <?php include __DIR__ . '/partials/home/gallery.php'; ?>
     <?php include __DIR__ . '/partials/home/fantabulous.php'; ?>
     <?php include __DIR__ . '/partials/home/testimonials.php'; ?>
-    <?php include __DIR__ . '/partials/home/facilities.php'; ?>
-    <?php include __DIR__ . '/partials/home/gallery.php'; ?>
+    
+    
     <?php include __DIR__ . '/partials/home/hero.php'; ?>
     <?php include __DIR__ . '/partials/home/cta.php'; ?>
     <?php include __DIR__ . '/partials/home/footer.php'; ?>
@@ -98,7 +113,7 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     </button>
 
-    <script src="./assets/js/script.js?v=19" defer></script>
+    <script src="./assets/js/script.js?v=39" defer></script>
 </body>
 
 </html>

@@ -1,11 +1,11 @@
 <?php
     // HERO — full viewport. Background is a fading Swiper image slider.
-    // Drop campus photos into assets/image/hero/slide-1..4.jpg (1920x1080).
+    // Drop campus photos into assets/image/hero/slide-1..4.webp (1920x1080).
     $heroSlides = [
-        './assets/image/hero/slide-1.jpg',
-        './assets/image/hero/slide-2.jpg',
-        './assets/image/hero/slide-3.jpg',
-        './assets/image/hero/slide-4.jpg',
+        './assets/image/hero/slide-1.webp',
+        './assets/image/hero/slide-2.webp',
+        './assets/image/hero/slide-3.webp',
+        './assets/image/hero/slide-4.webp',
     ];
 ?>
 <section id="journey" class="relative w-full overflow-hidden py-20 md:py-24">
@@ -16,7 +16,7 @@
             <?php foreach ($heroSlides as $i => $src): ?>
                 <!-- IMAGE NEEDED: <?= $src ?> (full-bleed campus photo, 1920x1080) -->
                 <div class="hero-slide swiper-slide relative">
-                    <img src="<?= $src ?>" alt="RPS campus <?= $i + 1 ?>" class="h-full w-full object-cover"
+                    <img width="1742" height="903" src="<?= $src ?>" alt="RPS campus <?= $i + 1 ?>" class="h-full w-full object-cover"
                          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1B1464,#0a0a12 70%)'">
                 </div>
             <?php endforeach; ?>
@@ -35,24 +35,28 @@
                     #HappySchooling · CBSE Affiliation 1930977
                 </div>
 
-                <h1 class="sec-title reveal-up mt-6 text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
+                <h2 class="sec-title reveal-up mt-6 text-4xl sm:text-5xl md:text-6xl xl:text-7xl">
                     The Journey of<br>
                     <span class="brand-text brand-hero">Success</span> Starts Here
-                </h1>
+                </h2>
 
                 <p class="reveal-up mt-6 max-w-xl text-base md:text-lg text-slate-300/90">
                     Rathinam International Public School, Coimbatore — nurturing young
-                    minds from early childhood to high school graduation through
+                    minds from early childhood to high school through
                     positive psychology, AI-powered learning and holistic growth.
                 </p>
 
                 <div class="reveal-up mt-8 flex flex-wrap items-center gap-4">
                     <a href="#admission" class="group inline-flex items-center gap-2.5 rounded-2xl btn-primary px-7 py-3.5 font-semibold text-white shadow-lg shadow-rps-amber/40 transition hover:scale-105">
-                        Enquire Admission
+                        Book a Campus Visit
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="#about" class="inline-flex items-center gap-2.5 rounded-2xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/10">
-                        Explore RPS
+                    <a href="contact" class="inline-flex items-center gap-2.5 rounded-2xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/10">
+                        Enquire Now
+                    </a>
+                    <a href="./assets/RPS-Brochure-2026-27.pdf" target="_blank" rel="noopener" download class="inline-flex items-center gap-2.5 rounded-2xl border border-white/15 bg-white/5 px-7 py-3.5 font-semibold text-white backdrop-blur transition hover:bg-white/10">
+                        Download Brochure
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     </a>
                 </div>
             </div>
@@ -63,10 +67,10 @@
                     <!-- QR admission card -->
                     <div class="glass floating-card float-1 p-5 text-center">
                         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-rps-amber">Admissions Open</p>
-                        <p class="mt-1 text-sm text-slate-300">Scan to start your application</p>
-                        <!-- IMAGE NEEDED: assets/image/hero/qr.png (admission QR, square) -->
+                        <p class="mt-1 text-sm text-slate-300">Scan to Book a Campus Visit</p>
+                        <!-- IMAGE NEEDED: assets/image/hero/qr.webp (admission QR, square) -->
                         <div class="mx-auto mt-4 grid h-32 w-32 place-items-center rounded-xl bg-white/90 p-2">
-                            <img src="./assets/image/hero/qr.png" alt="Admission QR code" class="h-full w-full object-contain"
+                            <img width="500" height="500" src="./assets/image/hero/qr.webp" alt="Admission QR code" class="h-full w-full object-contain"
                                  onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'text-xs text-rps-navy font-semibold',textContent:'QR here'}))">
                         </div>
                     </div>
@@ -87,8 +91,8 @@
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>
                         </span>
                         <span class="text-left leading-tight">
-                            <span class="block text-sm font-semibold text-white">Nursery – Grade 12</span>
-                            <span class="block text-xs text-slate-400">One joyful journey</span>
+                            <span class="block text-sm font-semibold text-white">Zia Early Years</span>
+                            <span class="block text-xs text-slate-300">Cambridge</span>
                         </span>
                     </div>
                 </div>

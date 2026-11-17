@@ -1,0 +1,78 @@
+# ===== Rathinam International Public School — Apache configuration =====
+# Clean (extensionless) URLs, long-lived caching, and gzip compression.
+#
+# BASE PATH — the site is served from the domain/subdomain ROOT, so RewriteBase
+# is "/". This single line is the ONLY place the base path lives: if you ever
+# deploy into a sub-folder (e.g. example.com/rps/), change it to "/rps/".
+
+Options -Indexes +FollowSymLinks
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Works at the domain/subdomain ROOT *and* inside a sub-folder (e.g. /rps-site/)
+    # because it never hardcodes a base path — it relies on the per-directory context.
+
+    # 1) Redirect any direct ".php" request to its clean URL (301). %1 captures the
+    #    full path after the leading slash, so the sub-folder prefix is preserved.
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+    RewriteRule ^ /%1 [R=301,L,NE]
+
+    # 2) Internally serve "page" from "page.php" when that file exists in this dir.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+?)/?$ $1.php [L]
+</IfModule>
+
+# ===== Compression =====
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml \
+        application/javascript text/javascript application/json image/svg+xml application/rss+xml
+</IfModule>
+
+# ===== Browser caching =====
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                       "access plus 1 week"
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/gif              "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType image/x-icon           "access plus 1 year"
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType font/woff              "access plus 1 year"
+    ExpiresByType text/css               "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript        "access plus 1 month"
+    ExpiresByType application/pdf        "access plus 1 month"
+    ExpiresByType application/xml        "access plus 1 day"
+    ExpiresByType text/html              "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(webp|png|jpe?g|gif|svg|ico|woff2?|css|js|pdf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html|php)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+    Header unset X-Powered-By
+
+    # ----- Security headers (Best Practices / Trust & Safety) -----
+    # HSTS — force HTTPS for a year (only enable once the whole site is on HTTPS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    # Clickjacking + MIME-sniffing + referrer + isolation
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ===== Basic hardening =====
+<FilesMatch "\.(?:env|md|json|lock|log|ini)$">
+    Require all denied
+</FilesMatch>

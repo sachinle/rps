@@ -1,42 +1,41 @@
 <?php
     // GALLERY — two-row marquee. Rows scroll in OPPOSITE directions with mixed
     // image sizes (wide = big, ~square = small). Reuses .marquee (JS clones each
-    // track for a seamless infinite loop). Photos: assets/image/gallery/01..08.jpg
+    // track for a seamless infinite loop). Photos: assets/image/gallery/01..08.webp
     $photos = [];
-    for ($n = 1; $n <= 8; $n++) { $photos[] = sprintf('gallery/%02d.jpg', $n); }
-    // Varied aspect ratios cycled per item to create the big/small mix.
-    $ratios = [1.55, 0.92, 1.35, 1.15, 1.7, 0.88, 1.3, 1.05];
+    for ($n = 1; $n <= 15; $n++) { $photos[] = sprintf('gallery/%02d.webp', $n); }
+    // Varied aspect ratios cycled per item (classes defined in style.css: .ar1–.ar8).
+    $arcls = ['ar1', 'ar2', 'ar3', 'ar4', 'ar5', 'ar6', 'ar7', 'ar8'];
     $row1 = $photos;
     $row2 = array_reverse($photos);
 
     // Small helper to render a marquee row of gallery images.
-    $renderRow = function ($imgs, $offset) use ($ratios) {
+    $renderRow = function ($imgs, $offset) use ($arcls) {
         foreach ($imgs as $i => $img):
-            $ratio = $ratios[($i + $offset) % count($ratios)];
+            $cls = $arcls[($i + $offset) % count($arcls)];
     ?>
-        <figure class="gallery-item" style="aspect-ratio: <?= $ratio ?>">
-            <img src="./assets/image/<?= $img ?>" alt="RPS gallery" loading="lazy"
+        <figure class="gallery-item <?= $cls ?>">
+            <img width="1200" height="800" src="./assets/image/<?= $img ?>" alt="RPS gallery" loading="lazy"
                  onerror="this.parentElement.style.background='linear-gradient(135deg,#c9cbe0,#e7e9f6)'">
         </figure>
     <?php endforeach;
     };
 ?>
-<section id="gallery" class="relative overflow-hidden py-24 sec-light">
+<section id="gallery" class="relative overflow-hidden py-24">
     <div class="rps-container">
         <div class="mx-auto max-w-2xl text-center">
             <div class="eyebrow reveal-up mx-auto"><span class="dot"></span> Life @ RPS</div>
             <h2 class="sec-title reveal-up mt-5 text-3xl md:text-5xl">Our <span class="brand-text">Gallery</span></h2>
-            <p class="reveal-up mt-5 text-slate-400">Snapshots of everyday joy, celebration and learning at RPS.</p>
         </div>
     </div>
 
     <div class="mt-12 space-y-4">
         <!-- Row 1 — scrolls left -->
-        <div class="marquee" style="--mq-speed:58s">
+        <div class="marquee marquee--s58">
             <div class="marquee__track gallery-row"><?php $renderRow($row1, 0); ?></div>
         </div>
         <!-- Row 2 — scrolls right (opposite direction) -->
-        <div class="marquee marquee--reverse" style="--mq-speed:66s">
+        <div class="marquee marquee--reverse marquee--s66">
             <div class="marquee__track gallery-row"><?php $renderRow($row2, 3); ?></div>
         </div>
     </div>

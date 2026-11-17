@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Keep raw PHP includes out of crawls (they are not standalone pages)
+Disallow: /partials/
+
+# AI / LLM crawlers — allowed, with the llms.txt summary available
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://rathinamschool.ac.in/sitemap.xml

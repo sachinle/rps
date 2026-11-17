@@ -13,15 +13,15 @@
         ],
         [
             'title' => 'The <span class="brand-text">Joy of Learning</span><br>for Every Child',
-            'body'  => 'Rooted in positive psychology, our approach nurtures confidence, curiosity and compassion. From their earliest years right through to high-school graduation, every child grows into a capable, caring and future-ready individual.',
+            'body'  => 'Rooted in positive psychology, our approach nurtures confidence, curiosity and compassion. From the early years through Senior Secondary, every child grows into a capable, caring and future-ready individual.',
         ],
     ];
-    $aboutImgs = ['about-campus.jpg', 'Banner1.png', 'Banner2.png', 'Banner3.png', 'Banner4.png'];
+    $aboutImgs = ['about-campus.webp', 'Banner1.webp', 'Banner2.webp', 'Banner3.webp', 'Banner4.webp'];
     $stats = [
-        ['num' => '20+', 'label' => 'Years of Excellence'],
-        ['num' => '5+',  'label' => 'Acre Green Campus'],
-        ['num' => '10+', 'label' => 'Curriculum Programs'],
-        ['num' => '5+',  'label' => 'Awards & Recognitions'],
+        ['num' => '50+', 'label' => 'Years of Excellence'],
+        ['num' => '70-acre', 'label' => 'Hi-Tech Campus'],
+        ['num' => '10+', 'label' => 'Extra-curricular Programs'],
+        // ['num' => '5+',  'label' => 'Awards & Recognitions'],
     ];
 ?>
 <section id="about" class="relative py-24 sec-light">
@@ -34,9 +34,9 @@
 
                 <div class="about-slider swiper reveal-up mt-5">
                     <div class="swiper-wrapper">
-                        <?php foreach ($aboutSlides as $sl): ?>
+                        <?php foreach ($aboutSlides as $i => $sl): $tag = $i === 0 ? 'h1' : 'h2'; ?>
                             <div class="swiper-slide">
-                                <h2 class="sec-title text-3xl md:text-5xl"><?= $sl['title'] ?></h2>
+                                <<?= $tag ?> class="sec-title text-3xl md:text-5xl"><?= $sl['title'] ?></<?= $tag ?>>
                                 <p class="mt-5 max-w-xl text-slate-300/90 leading-relaxed"><?= $sl['body'] ?></p>
                             </div>
                         <?php endforeach; ?>
@@ -55,35 +55,28 @@
                 </div>
             </div>
 
-            <!-- RIGHT: image slider + rotating stat card -->
+            <!-- RIGHT: static image + synced stat slider -->
             <div class="col-span-12 lg:col-span-5">
                 <div class="glass reveal-up overflow-hidden p-2">
-                    <div class="about-img-slider swiper overflow-hidden rounded-2xl">
+                    <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-rps-navy/50 to-rps-ink">
+                        <img width="2560" height="1319" src="./assets/image/about-campus.webp" alt="Rathinam International Public School campus" loading="lazy" class="h-full w-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Synced stat slider card with a progress line -->
+                <div class="glass reveal-up relative mt-5 overflow-hidden p-6">
+                    <div class="about-stats-swiper swiper overflow-hidden h-[92px]">
                         <div class="swiper-wrapper">
-                            <?php foreach ($aboutImgs as $img): ?>
-                                <div class="swiper-slide">
-                                    <div class="aspect-[4/3] overflow-hidden bg-gradient-to-br from-rps-navy/50 to-rps-ink">
-                                        <img src="./assets/image/<?= $img ?>" alt="RPS campus" loading="lazy" class="h-full w-full object-cover"
-                                             onerror="this.parentElement.style.display='none'">
-                                    </div>
+                            <?php foreach ($stats as $st): ?>
+                                <div class="swiper-slide flex flex-col items-center justify-center text-center">
+                                    <span class="stat-num brand-text text-5xl md:text-6xl"><?= $st['num'] ?></span>
+                                    <span class="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400"><?= $st['label'] ?></span>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
-                </div>
-
-                <!-- Rotating stat card with a progress (time) line -->
-                <div class="glass reveal-up relative mt-5 overflow-hidden p-6">
-                    <div class="about-stats relative h-[92px]">
-                        <?php foreach ($stats as $i => $st): ?>
-                            <div class="stat-slide absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-700 <?= $i === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full' ?>">
-                                <span class="stat-num brand-text text-5xl md:text-6xl"><?= $st['num'] ?></span>
-                                <span class="mt-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400"><?= $st['label'] ?></span>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="absolute inset-x-0 bottom-0 h-[3px] bg-black/10">
-                        <div class="about-progress h-full w-0" style="background:linear-gradient(90deg,#EC008C,#EAB308,#3DB54A)"></div>
+                    <div class="absolute inset-x-0 bottom-0 h-[3px] bg-white/10">
+                        <div class="about-progress h-full w-0"></div>
                     </div>
                 </div>
             </div>

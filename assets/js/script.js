@@ -21,11 +21,112 @@
 
     function onScroll() {
         const y = window.scrollY;
-        if (nav) nav.classList.toggle("scrolled", y > navSolidAt);
+        const hero = document.getElementById("top");
+        if (nav) {
+            if (hero) {
+                nav.classList.toggle("scrolled", y > navSolidAt);
+            } else {
+                nav.classList.add("scrolled");
+            }
+        }
         if (topBtn) topBtn.classList.toggle("show", y > 400);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
+
+    /* ---- Testimonials: show full comments in an accessible dialog ---- */
+    const testimonialDialog = document.getElementById("testimonial-dialog");
+    const testimonialSection = document.getElementById("testimonials");
+    let testimonialDialogOpen = false;
+    if (testimonialDialog instanceof HTMLDialogElement && testimonialSection) {
+        const testimonialName = testimonialDialog.querySelector(".testimonial-dialog__name");
+        const testimonialRole = testimonialDialog.querySelector(".testimonial-dialog__role");
+        const testimonialText = testimonialDialog.querySelector(".testimonial-dialog__text");
+        const testimonialImage = testimonialDialog.querySelector(".testimonial-dialog__image");
+        const testimonialInitials = testimonialDialog.querySelector(".testimonial-dialog__initials");
+        const closeTestimonialDialog = testimonialDialog.querySelector(".testimonial-dialog__close");
+        let testimonialScrollY = 0;
+        let testimonialBodyStyles = null;
+
+        function updateTestimonialReadMore() {
+            document.querySelectorAll(".tcard__text").forEach((text) => {
+                const readMore = text.parentElement.querySelector(".tcard__read-more");
+                if (readMore) readMore.hidden = text.scrollHeight <= text.clientHeight + 1;
+            });
+        }
+
+        updateTestimonialReadMore();
+        window.addEventListener("resize", updateTestimonialReadMore);
+
+        document.addEventListener("click", (event) => {
+            const button = event.target instanceof Element ? event.target.closest(".tcard__read-more") : null;
+            if (!button || !testimonialSection.contains(button)) return;
+            if (!testimonialName || !testimonialRole || !testimonialText || !testimonialImage || !testimonialInitials) return;
+            testimonialName.textContent = button.dataset.testimonialName || "";
+            testimonialRole.textContent = button.dataset.testimonialRole || "";
+            testimonialText.textContent = button.dataset.testimonialText || "";
+            testimonialImage.hidden = true;
+            testimonialInitials.textContent = button.dataset.testimonialInitials || "";
+            testimonialInitials.hidden = false;
+            const image = button.dataset.testimonialImage;
+            if (image) {
+                testimonialImage.src = image;
+                testimonialImage.alt = button.dataset.testimonialName || "Testimonial author";
+                testimonialImage.hidden = false;
+                testimonialInitials.hidden = true;
+            } else {
+                testimonialImage.removeAttribute("src");
+                testimonialImage.alt = "";
+            }
+            testimonialScrollY = window.scrollY;
+            testimonialBodyStyles = {
+                position: document.body.style.position,
+                top: document.body.style.top,
+                left: document.body.style.left,
+                right: document.body.style.right,
+                width: document.body.style.width,
+            };
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${testimonialScrollY}px`;
+            document.body.style.left = "0";
+            document.body.style.right = "0";
+            document.body.style.width = "100%";
+            testimonialDialogOpen = true;
+            testimonialDialog.showModal();
+        });
+
+        testimonialImage.addEventListener("error", () => {
+            testimonialImage.hidden = true;
+            testimonialInitials.hidden = false;
+        });
+
+        if (closeTestimonialDialog) {
+            closeTestimonialDialog.addEventListener("click", () => testimonialDialog.close());
+        }
+        testimonialDialog.addEventListener("close", () => {
+            testimonialDialogOpen = false;
+            if (testimonialBodyStyles) {
+                document.body.style.position = testimonialBodyStyles.position;
+                document.body.style.top = testimonialBodyStyles.top;
+                document.body.style.left = testimonialBodyStyles.left;
+                document.body.style.right = testimonialBodyStyles.right;
+                document.body.style.width = testimonialBodyStyles.width;
+                testimonialBodyStyles = null;
+            }
+            const scrollBehavior = document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior = "auto";
+            window.scrollTo({ top: testimonialScrollY, left: 0, behavior: "instant" });
+            if (lenis) {
+                lenis.scrollTo(testimonialScrollY, { immediate: true, force: true });
+            }
+            requestAnimationFrame(() => {
+                document.documentElement.style.scrollBehavior = scrollBehavior;
+            });
+        });
+        testimonialDialog.addEventListener("click", (event) => {
+            if (event.target === testimonialDialog) testimonialDialog.close();
+        });
+    }
 
     /* ---- Lenis: momentum smooth scrolling (skipped for reduced-motion) ---- */
     let lenis = null;
@@ -36,7 +137,10 @@
             smoothWheel: true,
         });
         lenis.on("scroll", onScroll);
-        (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })();
+        (function raf(time) {
+            if (!testimonialDialogOpen) lenis.raf(time);
+            requestAnimationFrame(raf);
+        })();
 
         // Route in-page anchor links through Lenis (offset clears the fixed nav)
         document.querySelectorAll('a[href^="#"]').forEach((a) => {
@@ -185,37 +289,15 @@
         if (closeBtn) closeBtn.addEventListener("click", closeChat);
     })();
 
-    /* ---- About stats: rotate the stat card on a timer + progress line ---- */
-    (function () {
-        const wrap = document.querySelector(".about-stats");
-        const progress = document.querySelector(".about-progress");
-        if (!wrap) return;
-        const slides = wrap.querySelectorAll(".stat-slide");
-        if (slides.length < 2) return;
-        const dur = 2400;
-        let idx = 0;
-        function show(i) {
-            slides.forEach((s, j) => {
-                s.classList.remove("opacity-100", "translate-x-0");
-                s.classList.add("opacity-0");
-                s.classList.toggle("-translate-x-full", j < i);
-                s.classList.toggle("translate-x-full", j >= i);
-            });
-            slides[i].classList.remove("opacity-0", "translate-x-full", "-translate-x-full");
-            slides[i].classList.add("opacity-100", "translate-x-0");
-            if (progress) {
-                progress.style.transition = "none";
-                progress.style.width = "0%";
-                setTimeout(() => { progress.style.transition = "width " + dur + "ms linear"; progress.style.width = "100%"; }, 40);
-            }
-        }
-        show(0);
-        setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, dur);
-    })();
-
     /* ---- Swiper initialisation (runs after swiper-bundle loads) ---- */
+    let swiperTries = 0;
     function initSwipers() {
-        if (typeof Swiper === "undefined") return setTimeout(initSwipers, 120);
+        // Pages that don't load Swiper (e.g. About / Admission / Curriculum) must
+        // not poll forever — give up after ~3s instead of an infinite timer loop.
+        if (typeof Swiper === "undefined") {
+            if (++swiperTries < 25) setTimeout(initSwipers, 120);
+            return;
+        }
 
         // Top hero: full-screen banner images sliding one-by-one.
         if (document.querySelector(".hero-slider")) {
@@ -240,18 +322,44 @@
             });
         }
 
-        // About section: auto-sliding text content + fading image slider.
-        if (document.querySelector(".about-slider")) {
-            new Swiper(".about-slider", {
-                loop: true, speed: 700, autoHeight: true,
-                autoplay: { delay: 5000, disableOnInteraction: false },
-                pagination: { el: ".about-slider .about-pagination", clickable: true },
+        // About section: synced content slider + stats slider with continuous leftward loop
+        if (document.querySelector(".about-slider") && document.querySelector(".about-stats-swiper")) {
+            const delay = 4500;
+            const progress = document.querySelector(".about-progress");
+
+            function resetProgress() {
+                if (!progress) return;
+                progress.style.transition = "none";
+                progress.style.width = "0%";
+                setTimeout(() => {
+                    progress.style.transition = "width " + delay + "ms linear";
+                    progress.style.width = "100%";
+                }, 40);
+            }
+
+            const aboutStatsSwiper = new Swiper(".about-stats-swiper", {
+                loop: true,
+                speed: 700,
+                allowTouchMove: false,
             });
-        }
-        if (document.querySelector(".about-img-slider")) {
-            new Swiper(".about-img-slider", {
-                loop: true, effect: "fade", fadeEffect: { crossFade: true }, speed: 900,
-                autoplay: { delay: 4000, disableOnInteraction: false },
+
+            new Swiper(".about-slider", {
+                loop: true,
+                speed: 700,
+                autoHeight: true,
+                autoplay: { delay: delay, disableOnInteraction: false },
+                pagination: { el: ".about-slider .about-pagination", clickable: true },
+                on: {
+                    init: resetProgress,
+                    slideChangeTransitionStart: function () {
+                        resetProgress();
+                        // Advance stats by one on every content change → same cadence
+                        // (synced), cycles all 4 stats, always sliding leftward (loop).
+                        if (aboutStatsSwiper && typeof aboutStatsSwiper.slideNext === "function") {
+                            aboutStatsSwiper.slideNext();
+                        }
+                    }
+                }
             });
         }
 
@@ -281,6 +389,21 @@
                 freeMode: { enabled: true, momentum: false },
                 autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
                 breakpoints: { 640: { slidesPerView: 1.8 }, 1024: { slidesPerView: 2.6 } },
+            });
+        });
+
+        // Testimonials: continuous, never-stopping marquee of parent comments.
+        // Card widths come from CSS (slidesPerView 'auto'); linear timing via CSS.
+        document.querySelectorAll(".testimonial-swiper").forEach((node) => {
+            new Swiper(node, {
+                loop: true,
+                slidesPerView: "auto",
+                spaceBetween: 20,
+                speed: 6000,
+                allowTouchMove: true,
+                grabCursor: true,
+                freeMode: { enabled: true, momentum: false },
+                autoplay: { delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true },
             });
         });
     }

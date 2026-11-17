@@ -8,15 +8,39 @@
         ['accent' => 'var(--rps-blue)',  'title' => 'Safe & Caring Campus',  'desc' => 'A secure, supervised and joyful environment where every child feels valued and safe.', 'icon' => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'],
     ];
     $traits = [
-        ['label' => 'Growth Mindset',        'accent' => 'var(--rps-amber)'],
-        ['label' => 'Emotional Intelligence','accent' => 'var(--rps-amber)'],
-        ['label' => 'Confidence & Courage',  'accent' => 'var(--rps-amber)'],
-        ['label' => 'Curiosity & Wonder',    'accent' => 'var(--rps-blue)'],
-        ['label' => 'Resilience',            'accent' => 'var(--rps-amber)'],
-        ['label' => 'Empathy & Kindness',    'accent' => 'var(--rps-blue)'],
+        [
+            'label'  => 'Growth Mindset',
+            'accent' => '#EAB308',
+            'icon'   => '<path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><path d="M9 21h6"/>',
+        ],
+        [
+            'label'  => 'Emotional Intelligence',
+            'accent' => '#3DB54A',
+            'icon'   => '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+        ],
+        [
+            'label'  => 'Confidence & Courage',
+            'accent' => '#EAB308',
+            'icon'   => '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>',
+        ],
+        [
+            'label'  => 'Curiosity & Wonder',
+            'accent' => '#3DB54A',
+            'icon'   => '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/>',
+        ],
+        [
+            'label'  => 'Resilience',
+            'accent' => '#EAB308',
+            'icon'   => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+        ],
+        [
+            'label'  => 'Empathy & Kindness',
+            'accent' => '#3DB54A',
+            'icon'   => '<path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-4-11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm8 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-8 4a5 5 0 0 0 8 0H8z"/>',
+        ],
     ];
 ?>
-<section class="relative py-24">
+<section class="relative py-24 sec-light">
     <div class="rps-container">
         <div class="flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:gap-14">
 
@@ -28,10 +52,10 @@
                 </h2>
                 <div class="mt-8 grid gap-4 sm:grid-cols-2">
                     <?php foreach ($reasons as $r): ?>
-                        <div class="side-card reveal-up flex h-full flex-col p-5" style="--accent: <?= $r['accent'] ?>">
+                        <div class="side-card reveal-up flex h-full flex-col p-5 <?= rps_acc($r['accent']) ?>">
                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="<?= $r['accent'] ?>" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?= $r['icon'] ?></svg>
                             <h3 class="mt-3 text-lg font-semibold text-white"><?= $r['title'] ?></h3>
-                            <p class="mt-1 text-sm text-slate-400"><?= $r['desc'] ?></p>
+
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -40,7 +64,7 @@
             <!-- RIGHT: Positive Psychology -->
             <div class="col-span-12 lg:col-span-6 lg:self-center">
                 <div class="glass reveal-up p-7 md:p-8">
-                    <div class="eyebrow"><span class="dot" style="background:#EAB308;box-shadow:0 0 0 4px rgba(234,179,8,.28)"></span> Positive Psychology in Learning</div>
+                    <div class="eyebrow"><span class="dot dot--amber"></span> Positive Psychology in Learning</div>
                     <p class="mt-5 text-slate-300/90 leading-relaxed">
                         At RPS, learning is rooted in well-being. Our positive-psychology
                         approach helps children build the inner strengths that carry them
@@ -48,9 +72,10 @@
                     </p>
                     <div class="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
                         <?php foreach ($traits as $t): ?>
-                            <div class="floating-card flex min-h-[92px] flex-col items-center justify-center gap-2 rounded-2xl border p-4 text-center transition hover:scale-105"
-                                 style="border-color: color-mix(in srgb, <?= $t['accent'] ?> 45%, transparent); background: color-mix(in srgb, <?= $t['accent'] ?> 12%, transparent)">
-                                <span class="block h-2.5 w-2.5 rounded-full" style="background: <?= $t['accent'] ?>"></span>
+                            <div class="trait-chip floating-card flex min-h-[105px] flex-col items-center justify-center gap-2.5 rounded-2xl border p-4 text-center transition hover:scale-105 <?= rps_acc($t['accent']) ?>">
+                                <span class="trait-chip__ico grid h-8 w-8 place-items-center rounded-xl">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?= $t['icon'] ?></svg>
+                                </span>
                                 <span class="text-sm font-semibold text-white"><?= $t['label'] ?></span>
                             </div>
                         <?php endforeach; ?>

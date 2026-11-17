@@ -3,39 +3,47 @@
     // Each stage has copy + a small image collage (drop photos in assets/image/stages/).
     $stages = [
         'foundation' => [
-            'tab'    => 'Grade 2 – Nursery',
+            'tab'    => 'Nursery–Grade 2',
             'label'  => 'Foundation Stage',
-            'title'  => 'Foundation Stage · Nursery – Grade 2',
+            'title'  => 'Foundation Stage · Nursery–Grade 2',
             'desc'   => 'In the Foundation Stage, encompassing Nursery through Grade 2, our holistic curriculum is thoughtfully designed to provide a well-rounded and developmentally appropriate learning experience for young minds. Focused on fostering intellectual, social, emotional and physical growth, our program integrates play-based learning, hands-on activities and interactive experiences — with language development, numeracy skills and creative expression seamlessly woven into a balanced, engaging educational journey.',
             'points' => ['Literacy', 'Numeracy', 'Social & Emotional Development', 'Physical Development'],
-            'imgs'   => ['stages/foundation-1.jpg', 'stages/foundation-2.jpg', 'stages/foundation-3.jpg'],
+            'imgs'   => ['stages/foundation-1.webp', 'stages/foundation-2.webp', 'stages/foundation-3.webp'],
         ],
         'preparatory' => [
-            'tab'    => 'Grade 5 – 3',
+            'tab'    => 'Grades 3–5',
             'label'  => 'Preparatory Stage',
-            'title'  => 'Preparatory Stage · Grade 3 – 5',
+            'title'  => 'Preparatory Stage · Grades 3–5',
             'desc'   => 'In the Preparatory Stage, encompassing Grades 3 to 5, our holistic curriculum builds upon the foundational skills acquired in the earlier years, fostering a more advanced and comprehensive learning experience. Emphasizing a student-centered approach, we develop critical thinking, problem-solving and effective communication — going beyond traditional subject boundaries with interdisciplinary projects and a robust focus on literacy and numeracy.',
             'points' => ['Advanced Literacy', 'Mathematical Proficiency', 'Social & Emotional Growth', 'Critical Thinking & Inquiry'],
-            'imgs'   => ['stages/primary-1.jpg', 'stages/primary-2.jpg', 'stages/primary-3.jpg'],
+            'imgs'   => ['stages/primary-1.webp', 'stages/primary-2.webp', 'stages/primary-3.webp'],
         ],
         'middle' => [
-            'tab'    => 'Grade 8 – 6',
+            'tab'    => 'Grades 6–8',
             'label'  => 'Middle School',
-            'title'  => 'Middle School · Grade 6 – 8',
+            'title'  => 'Middle School · Grades 6–8',
             'desc'   => 'In the dynamic Middle School years, spanning Grades 6 to 8, our holistic curriculum is meticulously crafted to guide students through a transformative educational journey. Rooted in academic excellence, our program emphasizes subject-specific knowledge while fostering critical thinking, collaboration and independent inquiry — with project-based learning, real-world applications and collaborative projects that cater to diverse interests and learning styles.',
             'points' => ['Advanced Academics', 'Organizational Studies', 'Communication & Collaboration', 'Digital Literacy'],
-            'imgs'   => ['stages/middle-1.jpg', 'stages/middle-2.jpg', 'stages/middle-3.jpg'],
+            'imgs'   => ['stages/middle-1.webp', 'stages/middle-2.webp', 'stages/middle-3.webp'],
         ],
         'secondary' => [
-            'tab'    => 'Grade 12 – 9',
+            'tab'    => 'Grades 9–10',
+            'label'  => 'Secondary',
+            'title'  => 'Secondary · Grades 9–10',
+            'desc'   => 'In the Secondary stage, spanning Grades 9 and 10, our curriculum follows the CBSE framework to build a strong conceptual foundation across core subjects — mathematics, science, social science and languages. With a clear focus on Class 10 board readiness, students strengthen analytical thinking, problem-solving and study discipline through structured practice, projects and continuous assessment, while skill subjects and co-curricular exposure keep learning well-rounded.',
+            'points' => ['Board Exam Readiness', 'Conceptual Mastery', 'Analytical Thinking', 'Skill Subjects'],
+            'imgs'   => ['stages/secondary-1.webp', 'stages/secondary-2.webp', 'stages/secondary-3.webp'],
+        ],
+        'seniorsecondary' => [
+            'tab'    => 'Grades 11–12',
             'label'  => 'Senior Secondary',
-            'title'  => 'Senior Secondary · Grade 9 – 12',
-            'desc'   => 'In the High School years, encompassing Grades 9 to 12 and following the NCERT syllabus, our curriculum is designed to provide a comprehensive and rigorous academic foundation. Aligned with NCERT guidelines, our program ensures depth of understanding in core subjects such as mathematics, science, social sciences and languages — structured to prepare students for national-level examinations through research-backed teaching that emphasizes critical thinking, analytical skills and practical application.',
-            'points' => ['Advanced Academics', 'Independence & Self-Management', 'Specialized Knowledge', 'Effective Communication'],
-            'imgs'   => ['stages/secondary-1.jpg', 'stages/secondary-2.jpg', 'stages/secondary-3.jpg'],
+            'title'  => 'Senior Secondary · Grades 11–12',
+            'desc'   => 'In the Senior Secondary stage, encompassing Grades 11 and 12, students specialise through their chosen stream and follow the CBSE senior-secondary curriculum. Our program combines in-depth subject expertise with rigorous preparation for board and competitive examinations — supported by research projects, guided practice and personalised career and college guidance that prepares every student for higher education and beyond.',
+            'points' => ['Stream Specialisation', 'Board & Competitive Prep', 'Research & Projects', 'Career Guidance'],
+            'imgs'   => ['stages/secondary-1.webp', 'stages/secondary-2.webp', 'stages/secondary-3.webp'],
         ],
     ];
-    // Show tabs in descending order: Grade 9–12 first … Nursery last.
+    // Show tabs in descending order: Grades 11–12 first … Nursery last.
     $stages = array_reverse($stages, true);
 ?>
 <section id="stages" class="relative py-24">
@@ -71,7 +79,7 @@
                             <ul class="mt-6 grid grid-cols-2 gap-3">
                                 <?php foreach ($s['points'] as $p): ?>
                                     <li class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5 text-sm text-slate-200">
-                                        <span class="stage-tick grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-rps-amber/20 text-rps-amber">
+                                        <span class="stage-tick grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-rps-green/20 text-rps-green">
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                                         </span>
                                         <?= $p ?>
@@ -91,7 +99,7 @@
                                     <!-- IMAGE NEEDED: assets/image/<?= $img ?> (stage photo) -->
                                     <div class="<?= $i === 0 ? 'row-span-2' : '' ?> glass overflow-hidden p-1.5">
                                         <div class="h-full min-h-[130px] overflow-hidden rounded-xl bg-gradient-to-br from-rps-navy/50 to-rps-ink">
-                                            <img src="./assets/image/<?= $img ?>" alt="<?= $s['label'] ?> at RPS" loading="lazy" class="h-full w-full object-cover"
+                                            <img width="1280" height="720" src="./assets/image/<?= $img ?>" alt="<?= $s['label'] ?> at RPS" loading="lazy" class="h-full w-full object-cover"
                                                  onerror="this.parentElement.innerHTML='<div class=\'grid h-full min-h-[130px] place-items-center text-[11px] text-slate-500 px-2 text-center\'><?= $img ?></div>'">
                                         </div>
                                     </div>
@@ -104,3 +112,17 @@
         </div>
     </div>
 </section>
+<script>
+/* Deep-link: /admission.php#foundation|#preparatory|#middle|#secondary opens that stage tab */
+(function () {
+    var keys = ['foundation', 'preparatory', 'middle', 'secondary', 'seniorsecondary'];
+    function openFromHash() {
+        var h = (location.hash || '').replace('#', '');
+        if (keys.indexOf(h) === -1) return;
+        var btn = document.querySelector('[data-tab="' + h + '"]');
+        if (btn) { btn.click(); document.getElementById('stages').scrollIntoView({ behavior: 'smooth' }); }
+    }
+    window.addEventListener('load', openFromHash);
+    window.addEventListener('hashchange', openFromHash);
+})();
+</script>

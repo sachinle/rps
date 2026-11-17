@@ -17,6 +17,7 @@ automatically — no code changes needed. Keep the same filenames.
 | `assets/image/stages/middle-1..3.jpg` | `stages.php` (Grade 4–5 tab) | mixed | |
 | `assets/image/stages/secondary-1..3.jpg` | `stages.php` (Grade 6–12 tab) | mixed | |
 | `assets/image/ai-robot.png` | `ai-robotics.php` | square, transparent PNG | Robot / AI mascot. |
+| `assets/image/testimonials/*.png` | `testimonials.php` | square portraits | Parent and staff testimonial photos. |
 | `assets/image/social/01.jpg` … `08.jpg` | `social-media.php` | square (1:1) | Instagram post thumbnails. |
 | `assets/image/gallery/01.jpg` … `08.jpg` | `gallery.php` | 4:3 | Gallery carousel photos. |
 
@@ -26,7 +27,6 @@ Set the YouTube video **id** inline in these partials:
 
 - `admission-checker.php` → `$ytId` (the "Unlock Your Child's Full Potential" video)
 - `fantabulous.php` → `$videos[]['id']` (5 episodes)
-- `testimonials.php` → `$videos[]['id']` (4 parent testimonials)
 
 Thumbnails auto-load from `https://i.ytimg.com/vi/<id>/hqdefault.jpg`; clicking a
 tile swaps in the real YouTube iframe (privacy-friendly click-to-load).
